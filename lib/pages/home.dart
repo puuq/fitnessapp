@@ -43,17 +43,24 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Container(
-            alignment: Alignment.center,
-            height: 50,
-            width: 150,
-            child: Text(
-              'SPANK Manik Dai',
-              style: TextStyle(color: Colors.white),
-            ),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: Colors.purple),
-          )
+          // Container(
+          //   alignment: Alignment.center,
+          //   height: 50,
+          //   width: 150,
+          //   child: Text(
+          //     'SPANK Manik Dai',
+          //     style: TextStyle(color: Colors.white),
+          //   ),
+          //   decoration: BoxDecoration(
+          //       borderRadius: BorderRadius.circular(10), color: Colors.purple),
+          // )
+          ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
+              child: const Text(
+                'SPANK Manik Dai',
+                style: TextStyle(color: Colors.white),
+              ))
         ],
       ),
     );
