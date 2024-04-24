@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -12,26 +13,30 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      body: Column(
-        children: [
-          SizedBox(
-            child: Center(
-              child: Container(
-                margin: EdgeInsets.only(top: 20),
-                height: 200,
-                width: 350,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/firstpage.png'),
-                      fit: BoxFit.fill,
-                    ),
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(10)),
-              ),
+      body: pageBody(),
+    );
+  }
+
+  Column pageBody() {
+    return Column(
+      children: [
+        SizedBox(
+          child: Center(
+            child: Container(
+              margin: EdgeInsets.only(top: 20),
+              height: 200,
+              width: 350,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/firstpage.png'),
+                    fit: BoxFit.fill,
+                  ),
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(10)),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -61,3 +66,5 @@ class _LandingPageState extends State<LandingPage> {
     );
   }
 }
+
+class GNav {}

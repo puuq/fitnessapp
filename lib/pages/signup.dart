@@ -1,18 +1,18 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:fitnessapp/pages/signin.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fitnessapp/pages/landingpage.dart';
-import 'package:fitnessapp/pages/signup.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<SignIn> createState() => _SignInState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignUpState extends State<SignUp> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -30,7 +30,7 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         toolbarHeight: 100, // Adjusted toolbarHeight
         title: Text(
-          'Sign In',
+          'Sign Up',
           style: TextStyle(
               color: Colors.black, fontSize: 40, fontWeight: FontWeight.w500),
         ),
@@ -40,6 +40,19 @@ class _SignInState extends State<SignIn> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // Container(
+          //   height: 50,
+          //   margin: EdgeInsets.only(bottom: 20),
+          //   child: Center(
+          //     child: const Text(
+          //       'Sign Up',
+          //       style: TextStyle(
+          //           color: Colors.black,
+          //           fontSize: 40,
+          //           fontWeight: FontWeight.w500),
+          //     ),
+          //   ),
+          // ),
           Center(
             child: Container(
               height: 55,
@@ -51,6 +64,8 @@ class _SignInState extends State<SignIn> {
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 0, horizontal: 0),
                   hintText: 'Email',
+                  // border: OutlineInputBorder(
+                  //     borderRadius: BorderRadius.circular(5))
                 ),
               ),
             ),
@@ -67,19 +82,41 @@ class _SignInState extends State<SignIn> {
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 0, horizontal: 0),
                   hintText: 'Password',
+                  // border: OutlineInputBorder(
+                  //     borderRadius: BorderRadius.circular(5))
                 ),
               ),
             ),
           ),
-          Container(
-            alignment: Alignment.topRight,
-            margin: EdgeInsets.only(right: 50),
-            child: Text(
-              'Forgot Password?',
-              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
+          Center(
+            child: Container(
+              margin: EdgeInsets.only(bottom: 10),
+              width: 300,
+              child: TextField(
+                controller: passwordController,
+                enabled: true,
+                obscureText: true,
+                decoration: InputDecoration(
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                  hintText: 'Confirm Password',
+                  // border: OutlineInputBorder(
+                  //     borderRadius: BorderRadius.circular(5))
+                ),
+              ),
             ),
           ),
-          SizedBox(height: 10),
+          // Container(
+          //   alignment: Alignment.topRight,
+          //   margin: EdgeInsets.only(right: 50),
+          //   child: Text(
+          //     'Forgot Password?',
+          //     style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
+          //   ),
+          // ),
+          SizedBox(
+            height: 10,
+          ),
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: SizedBox(
@@ -99,7 +136,7 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 child: const Text(
-                  'Login',
+                  'Sign Up',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
@@ -107,11 +144,11 @@ class _SignInState extends State<SignIn> {
           ),
           RichText(
             text: TextSpan(
-              text: "Don't have an account? ",
+              text: "Already have an account? ",
               style: TextStyle(color: const Color.fromARGB(255, 75, 75, 75)),
               children: [
                 TextSpan(
-                  text: 'Sign Up',
+                  text: 'Sign In',
                   style: TextStyle(
                       color: Colors.blue, fontWeight: FontWeight.bold),
                   recognizer: TapGestureRecognizer()
@@ -119,7 +156,7 @@ class _SignInState extends State<SignIn> {
                       // Navigate to the SignUpPage when the text is tapped
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SignUp()),
+                        MaterialPageRoute(builder: (context) => SignIn()),
                       );
                     },
                 ),

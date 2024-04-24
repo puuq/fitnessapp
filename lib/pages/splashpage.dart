@@ -43,10 +43,13 @@ class _SplashPageState extends State<SplashPage> {
                 _showIcon ? 1.0 : 0.0, // Set opacity based on _showIcon state
             duration:
                 Duration(seconds: 2), // Adjust duration as per your preference
-            child: Icon(
-              Icons.fitness_center,
-              size: 100,
-              color: Colors.white,
+            child: Image.asset(
+              'assets/images/logo.png', // Replace 'your_image.png' with your image asset path
+              width: 100,
+              height: 100,
+              fit: BoxFit.contain,
+              color: Colors
+                  .white, // You can remove this if you don't want to apply color to the image
             ),
           ),
         ),
