@@ -2,6 +2,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:fitnessapp/pages/landingpage.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -92,20 +93,24 @@ class _SignInState extends State<SignIn> {
             child: SizedBox(
               width: 100,
               child: ElevatedButton(
-                  onPressed: () {
-                    String email = emailController.text;
-                    String password = passwordController.text;
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
+                onPressed: () {
+                  // Navigate to the LandingPage when the login button is pressed
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LandingPage()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40),
                   ),
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(color: Colors.white),
-                  )),
+                ),
+                child: const Text(
+                  'Login',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ),
           ),
           RichText(
