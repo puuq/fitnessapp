@@ -1,3 +1,4 @@
+import 'package:fitnessapp/pages/firstpage.dart';
 import 'package:fitnessapp/pages/home.dart';
 import 'package:fitnessapp/pages/signin.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class _SplashPageState extends State<SplashPage> {
       // Navigate to the next page after the fade-out animation finishes
       Future.delayed(Duration(milliseconds: 800), () {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => SignIn()),
+          MaterialPageRoute(builder: (context) => FirstPage()),
         );
       });
     });
