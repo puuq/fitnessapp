@@ -15,44 +15,54 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+
+  String errorText = ''; // Error text to display if passwords don't match
 
   @override
   void dispose() {
     // Clean up the controllers when the widget is disposed
     emailController.dispose();
     passwordController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
+  }
+
+  // Function to handle signing up
+  void signUp() {
+    if (passwordController.text != confirmPasswordController.text) {
+      // If passwords don't match, set error text
+      setState(() {
+        errorText = 'Passwords do not match';
+      });
+    } else {
+      // Passwords match, proceed with signing up
+      // Implement your sign-up logic here
+      // For example, navigate to the LandingPage
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LandingPage()),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100, // Adjusted toolbarHeight
+        toolbarHeight: 100,
         title: Text(
           'Sign Up',
           style: TextStyle(
               color: Colors.black, fontSize: 40, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
-        automaticallyImplyLeading: false, // Display back button automatically
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Container(
-          //   height: 50,
-          //   margin: EdgeInsets.only(bottom: 20),
-          //   child: Center(
-          //     child: const Text(
-          //       'Sign Up',
-          //       style: TextStyle(
-          //           color: Colors.black,
-          //           fontSize: 40,
-          //           fontWeight: FontWeight.w500),
-          //     ),
-          //   ),
-          // ),
+          // Email TextField
           Center(
             child: Container(
               height: 55,
@@ -64,12 +74,11 @@ class _SignUpState extends State<SignUp> {
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 0, horizontal: 0),
                   hintText: 'Email',
-                  // border: OutlineInputBorder(
-                  //     borderRadius: BorderRadius.circular(5))
                 ),
               ),
             ),
           ),
+          // Password TextField
           Center(
             child: Container(
               margin: EdgeInsets.only(bottom: 10),
@@ -82,53 +91,38 @@ class _SignUpState extends State<SignUp> {
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 0, horizontal: 0),
                   hintText: 'Password',
-                  // border: OutlineInputBorder(
-                  //     borderRadius: BorderRadius.circular(5))
                 ),
               ),
             ),
           ),
+          // Confirm Password TextField
           Center(
             child: Container(
               margin: EdgeInsets.only(bottom: 10),
               width: 300,
               child: TextField(
-                controller: passwordController,
+                controller: confirmPasswordController,
                 enabled: true,
                 obscureText: true,
                 decoration: InputDecoration(
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 0, horizontal: 0),
                   hintText: 'Confirm Password',
-                  // border: OutlineInputBorder(
-                  //     borderRadius: BorderRadius.circular(5))
+                  errorText: errorText.isNotEmpty
+                      ? errorText
+                      : null, // Show error text if not empty
                 ),
               ),
             ),
           ),
-          // Container(
-          //   alignment: Alignment.topRight,
-          //   margin: EdgeInsets.only(right: 50),
-          //   child: Text(
-          //     'Forgot Password?',
-          //     style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
-          //   ),
-          // ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 10),
+          // Sign Up Button
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: SizedBox(
               width: 100,
               child: ElevatedButton(
-                onPressed: () {
-                  // Navigate to the LandingPage when the login button is pressed
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LandingPage()),
-                  );
-                },
+                onPressed: signUp, // Call signUp function on button press
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   shape: RoundedRectangleBorder(
@@ -142,6 +136,7 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
           ),
+          // Link to Sign In page
           RichText(
             text: TextSpan(
               text: "Already have an account? ",
@@ -153,7 +148,7 @@ class _SignUpState extends State<SignUp> {
                       color: Colors.blue, fontWeight: FontWeight.bold),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      // Navigate to the SignUpPage when the text is tapped
+                      // Navigate to the SignIn page when the text is tapped
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => SignIn()),
