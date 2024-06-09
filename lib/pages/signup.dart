@@ -49,31 +49,48 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 100,
-        title: Text(
-          'Sign Up',
-          style: TextStyle(
-              color: Colors.black, fontSize: 40, fontWeight: FontWeight.w500),
-        ),
+          appBar: AppBar(
+        toolbarHeight: 0,
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Image.asset(
+                'assets/images/logo.png',
+                width: 70,
+              height: 70,
+              fit: BoxFit.contain,
+              ),
+            ),
+          Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: Text(
+                'Sign Up',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 40,
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
           // Email TextField
-          Center(
-            child: Container(
-              height: 55,
-              width: 300,
-              child: TextField(
-                controller: emailController,
-                enabled: true,
-                decoration: InputDecoration(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-                  hintText: 'Email',
+          Padding(
+            padding: const EdgeInsets.all(0.0),
+            child: Center(
+              child: Container(
+                height: 55,
+                width: 300,
+                child: TextField(
+                  controller: emailController,
+                  enabled: true,
+                  decoration: InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                    hintText: 'Email',
+                  ),
                 ),
               ),
             ),

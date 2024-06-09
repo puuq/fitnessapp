@@ -28,16 +28,25 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100, // Adjusted toolbarHeight
-        // Display back button automatically
+        toolbarHeight: 100,
+        automaticallyImplyLeading: false,
       ),
       body: Container(
         height: 500,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+                        Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Image.asset(
+                'assets/images/logo.png',
+                width: 70,
+              height: 70,
+              fit: BoxFit.contain,
+              ),
+            ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 100),
+              padding: const EdgeInsets.only(bottom: 20),
               child: Text(
                 'Sign In',
                 style: TextStyle(
@@ -46,6 +55,7 @@ class _SignInState extends State<SignIn> {
                     fontWeight: FontWeight.w500),
               ),
             ),
+
             Center(
               child: Container(
                 height: 55,
