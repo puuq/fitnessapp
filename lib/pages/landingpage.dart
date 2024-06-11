@@ -62,7 +62,8 @@ class _LandingPageState extends State<LandingPage> {
           ),
         ],
       currentIndex: _selectedIndex,
-      selectedItemColor: Style.primaryColor,
+      unselectedItemColor: Colors.white,
+      selectedItemColor: Color.fromARGB(255, 234, 188, 243),
       onTap: (index){
         setState(
             () {
@@ -71,6 +72,9 @@ class _LandingPageState extends State<LandingPage> {
         );
       },
       backgroundColor: Style.backgroundColor,
+      selectedFontSize: 16,
+      unselectedFontSize: 14,
+      iconSize: 25,
       )
     );
   }

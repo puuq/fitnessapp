@@ -27,6 +27,7 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
+                    padding: EdgeInsets.only(left: 20),
                     width: 180,
                     child: Center(
                       child: Column(
@@ -44,7 +45,7 @@ class HomePage extends StatelessWidget {
                         image: DecorationImage(image: AssetImage('assets/images/lunges.png'),
                         fit: BoxFit.cover
                         ),
-                        color: Color.fromARGB(255, 231, 201, 236),
+                        color: Color.fromARGB(255, 0, 0, 0),
                         borderRadius: BorderRadius.circular(20),
                     ),
                     width: 162,
