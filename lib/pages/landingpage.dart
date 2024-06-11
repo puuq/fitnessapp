@@ -1,4 +1,5 @@
 import 'package:fitnessapp/components/style.dart';
+import 'package:fitnessapp/pages/home.dart';
 import 'package:fitnessapp/pages/subpages/FoodScreen.dart';
 import 'package:fitnessapp/pages/subpages/ProfileScreen.dart';
 import 'package:fitnessapp/pages/subpages/ProgramsScreen.dart';
@@ -17,11 +18,11 @@ class _LandingPageState extends State<LandingPage> {
 
     int _selectedIndex = 0;
 
-    static const List<Widget> _widgetOptions = <Widget>[
-      LandingPage(),
-      FoodScreen(),
-      ProgramsScreen(),
-      ProfileScreen(),
+    List<Widget> _widgetOptions = <Widget>[
+      const HomePage(),
+      const FoodScreen(),
+      const ProgramsScreen(),
+      const ProfileScreen(),
     ];
 
     void _onItemTapped(int index) {
@@ -32,68 +33,17 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold (
+      key: const Key('landingScreen'),
       backgroundColor: Style.backgroundColor,
       appBar: appBar(),
-      body: pageBody(),
-      bottomNavigationBar: navBar(),
-    );
-  }
-
-  AppBar appBar() {
-    return AppBar(
-      backgroundColor: Style.backgroundColor,
-      toolbarHeight: 70,
-      automaticallyImplyLeading: false,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset(
-            'assets/images/logo.png',
-            fit: BoxFit.contain,
-            width: 50,
-            height: 50,
-          ),
-          Container(
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.menu,
-                size: 40,
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Column pageBody() {
-    return Column(
-      children: [
-        SizedBox(
-          child: Center(
-            child: Container(
-              margin: EdgeInsets.only(top: 20),
-              height: 200,
-              width: 350,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/firstpage.png'),
-                    fit: BoxFit.fill,
-                  ),
-                  borderRadius: BorderRadius.circular(10)),
-            ),
-          ),
-        ),
+      body: _widgetOptions[
+        _selectedIndex
       ],
-    );
-  }
-
-    BottomNavigationBar navBar() {
-      return BottomNavigationBar(
+      bottomNavigationBar: 
+        BottomNavigationBar(
         type: BottomNavigationBarType.fixed, 
-        items: const <BottomNavigationBarItem>[
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -113,9 +63,69 @@ class _LandingPageState extends State<LandingPage> {
         ],
       currentIndex: _selectedIndex,
       selectedItemColor: Style.primaryColor,
-      onTap: _onItemTapped,
+      onTap: (index){
+        setState(
+            () {
+              _selectedIndex = index;
+          },
+        );
+      },
       backgroundColor: Style.backgroundColor,
-      );
-    }
+      )
+    );
+  }
+
+  AppBar appBar() {
+    return AppBar(
+      backgroundColor: Style.backgroundColor,
+      toolbarHeight: 70,
+      automaticallyImplyLeading: false,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Text('Hello Manik', style: TextStyle(color: Colors.white),)
+
+          // Image.asset(
+          //   'assets/images/logo.png',
+          //   fit: BoxFit.contain,
+          //   width: 50,
+          //   height: 50,
+          // ),
+          // Container(
+          //   child: IconButton(
+          //     onPressed: () {},
+          //     icon: Icon(
+          //       Icons.menu,
+          //       size: 40,
+          //     ),
+          //   ),
+          // )
+        ],
+      ),
+    );
+  }
+
+  // Column pageBody() {
+  //   return Column(
+  //     children: [
+  //       SizedBox(
+  //         child: Center(
+  //           child: Container(
+  //             margin: EdgeInsets.only(top: 20),
+  //             height: 200,
+  //             width: 350,
+  //             decoration: BoxDecoration(
+  //                 image: DecorationImage(
+  //                   image: AssetImage('assets/images/firstpage.png'),
+  //                   fit: BoxFit.fill,
+  //                 ),
+  //                 borderRadius: BorderRadius.circular(10)),
+  //           ),
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
+
 
 }
