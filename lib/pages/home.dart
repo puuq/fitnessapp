@@ -12,11 +12,12 @@ class HomePage extends StatelessWidget {
       //   backgroundColor: Color.fromARGB(255, 68, 243, 255),
       //   centerTitle: true,
       // ),
-body: Container(
+      body: Container(
         color: Colors.grey, // Replace Style.backgroundColor with an actual color
         child: SingleChildScrollView(
           child: Column(
             children: [
+              
                 Container(
                 height: 750,
                 child: Stack(
@@ -75,10 +76,11 @@ body: Container(
                       ),
 
                     Positioned(
-                      bottom: 140,
-                      left: 20,
+                      bottom: 40,
+                      left: 60,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             'Welcome Back',
@@ -88,12 +90,49 @@ body: Container(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text(
-                            'Ready to convert your Pain to Gains?',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal,
+                          Text.rich(
+                            TextSpan(children: [
+                                TextSpan(
+                                  text:'Ready to convert your ',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'Pain',
+                                  style: TextStyle(
+                                    color: Style.primaryColor, // Change this to the color you want for "Pain"
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ' to ',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'Gains',
+                                  style: TextStyle(
+                                    color: Style.primaryColor, // Change this to the color you want for "Gains"
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '?',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -102,6 +141,24 @@ body: Container(
                   ],
                 ),
               ),
+                Container(
+                  width: 400,
+                  height: 70,
+                  margin: EdgeInsets.all(25),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Style.primaryColor
+                  ),
+                  child: Center(
+                    child: const Text(
+                      'Weekly Challenge',
+                      style: TextStyle(fontSize: 30 , fontWeight: FontWeight.w500 , color: Colors.white),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+
+
               Container(
                 width: 400,
                 height: 150,
