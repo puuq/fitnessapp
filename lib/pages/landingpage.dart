@@ -36,7 +36,7 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold (
       key: const Key('landingScreen'),
       backgroundColor: Style.backgroundColor,
-      appBar: appBar(),
+      // appBar: appBar(),
       body: _widgetOptions[
         _selectedIndex
       ],
@@ -57,8 +57,8 @@ class _LandingPageState extends State<LandingPage> {
             label: 'Programs',
           ),
                 BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       currentIndex: _selectedIndex,
@@ -79,35 +79,19 @@ class _LandingPageState extends State<LandingPage> {
     );
   }
 
-  AppBar appBar() {
-    return AppBar(
-      backgroundColor: Style.backgroundColor,
-      toolbarHeight: 70,
-      automaticallyImplyLeading: false,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Text('Hello Manik', style: TextStyle(color: Colors.white),)
-
-          // Image.asset(
-          //   'assets/images/logo.png',
-          //   fit: BoxFit.contain,
-          //   width: 50,
-          //   height: 50,
-          // ),
-          // Container(
-          //   child: IconButton(
-          //     onPressed: () {},
-          //     icon: Icon(
-          //       Icons.menu,
-          //       size: 40,
-          //     ),
-          //   ),
-          // )
-        ],
-      ),
-    );
-  }
+  // AppBar appBar() {
+  //   return AppBar(
+  //     backgroundColor: Style.backgroundColor,
+  //     toolbarHeight: 70,
+  //     automaticallyImplyLeading: false,
+  //     title: Row(
+  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //       children: [
+  //         const Text('Hello Manik', style: TextStyle(color: Colors.white),)
+  //       ],
+  //     ),
+  //   );
+  // }
 
   // Column pageBody() {
   //   return Column(
