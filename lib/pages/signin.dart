@@ -87,18 +87,10 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
             ),
-            Container(
-              alignment: Alignment.topRight,
-              margin: EdgeInsets.only(right: 50),
-              child: Text(
-                'Forgot Password?',
-                style:
-                    TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
-              ),
-            ),
+            
             SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.only(bottom: 10),
+              padding: const EdgeInsets.only(bottom: 5),
               child: SizedBox(
                 width: 100,
                 child: ElevatedButton(
@@ -122,6 +114,17 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
             ),
+
+            Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.only(bottom: 10),
+              child: Text(
+                'Forgot Password?',
+                style:
+                    TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
+              ),
+            ),
+            
             RichText(
               text: TextSpan(
                 text: "Don't have an account? ",

@@ -1,5 +1,6 @@
 import 'package:fitnessapp/components/style.dart';
 import 'package:flutter/material.dart';
+import 'dart:ui';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,11 +14,10 @@ class HomePage extends StatelessWidget {
       //   centerTitle: true,
       // ),
       body: Container(
-        color: Colors.grey, // Replace Style.backgroundColor with an actual color
+        color: const Color.fromARGB(255, 0, 0, 0),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              
                 Container(
                 height: 750,
                 child: Stack(
@@ -30,6 +30,21 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                     ),
+
+                    //   Positioned.fill(child: Container(
+                    //     decoration: BoxDecoration(
+                    //       gradient: LinearGradient(
+                    //         begin: Alignment.topCenter,
+                    //         end: Alignment.bottomCenter,
+                    //         colors: [
+                    //           Colors.transparent,
+                    //           Colors.black,
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+
                     Positioned(
                       top: 50,
                       left: 20,
@@ -143,8 +158,8 @@ class HomePage extends StatelessWidget {
               ),
                 Container(
                   width: 400,
-                  height: 70,
-                  margin: EdgeInsets.all(25),
+                  height: 60,
+                  margin: EdgeInsets.all(35),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
                     color: Style.primaryColor
@@ -158,100 +173,179 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
 
-
-              Container(
-                width: 400,
-                height: 150,
-                margin: EdgeInsets.all(25),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.black,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(left: 20),
-                      width: 180,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Weekly",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 25,
-                                height: 0.8,
-                              ),
-                            ),
-                            Text(
-                              "Challenge",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 25,
-                              ),
-                            ),
-                            Text(
-                              "Dumbbell Lunges 20x3",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 15,
-                                height: 2,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/lunges.png'),
-                          fit: BoxFit.cover,
-                        ),
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      width: 162,
-                    ),
-                  ],
-                ),
-              ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     margin: EdgeInsets.only(left: 25),
-                    height: 130,
-                    width: 160,
+                    height: 100,
+                    width: 140,
                     decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/pushup.png'),
+                          fit: BoxFit.cover,
+                        ),
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.black,
                     ),
                   ),
                   Container(
                     margin: EdgeInsets.only(right: 25),
-                    height: 130,
-                    width: 160,
+                    height: 100,
+                    width: 200,
                     decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      // color: Colors.black,
+                    ),
+                    child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Push Up",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.w600,
+                                height: 1.3,
+                              ),
+                            ),
+                            Text(
+                              "20x3",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ),
+                ],
+              ),
+
+              SizedBox(
+                height: 10,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 25),
+                    height: 100,
+                    width: 140,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/lunges.png'),
+                          fit: BoxFit.cover,
+                        ),
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.black,
                     ),
                   ),
+                  Container(
+                    margin: EdgeInsets.only(right: 25),
+                    height: 100,
+                    width: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      // color: Colors.black,
+                    ),
+                    child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Lunges",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.w600,
+                                height: 1.3,
+                              ),
+                            ),
+                            Text(
+                              "5x4",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ),
                 ],
               ),
+
+              SizedBox(
+                height: 10,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 25),
+                    height: 100,
+                    width: 140,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/dips.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.black,
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(right: 25),
+                    height: 100,
+                    width: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      // color: Colors.black,
+                    ),
+                    child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Tricep Dips",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 29,
+                                fontWeight: FontWeight.w600,
+                                height: 1.3,
+                              ),
+                            ),
+                            Text(
+                              "10x3",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ),
+                ],
+              ),
+
               SizedBox(
                 height: 20,
               ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
-                child: const Text(
-                  'SPANK Manik Dai',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
+              
             ],
           ),
         ),

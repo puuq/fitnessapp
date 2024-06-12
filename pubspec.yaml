@@ -68,6 +68,8 @@ flutter:
       - assets/images/lunges.png
       - assets/images/homepage.jpg
       - assets/images/profile.png
+      - assets/images/pushup.png
+      - assets/images/dips.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
