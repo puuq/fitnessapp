@@ -343,7 +343,57 @@ class HomePage extends StatelessWidget {
               ),
 
               SizedBox(
-                height: 20,
+                height: 40,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 25),
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/calorie.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      borderRadius: BorderRadius.circular(10),
+                      color: Style.calorieColor,
+                    ),
+                  ),
+                  Container(
+                    // margin: EdgeInsets.only(left: 25),
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/dips.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.black,
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(right: 25),
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/dips.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.black,
+                    ),
+                  ),
+                  
+                ],
+              ),
+
+              SizedBox(
+                height: 40,
               ),
               
             ],
