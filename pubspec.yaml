@@ -71,6 +71,8 @@ flutter:
       - assets/images/pushup.png
       - assets/images/dips.jpg
       - assets/images/calorie.png
+      - assets/images/steps.png
+      - assets/images/sleep.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
