@@ -11,6 +11,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String bmiResult = '';
+  String bmiCategory = '';
+
+  String _getBmiCategory(double bmi) {
+    if (bmi < 18.5) {
+      return 'Underweight';
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+      return 'Balanced';
+    } else if (bmi >= 24.9 && bmi < 29.9) {
+      return 'Overweight';
+    } else {
+      return 'Obesity';
+    }
+  }
 
   void _showBmiCalculatorDialog() {
     showDialog(
@@ -52,8 +65,10 @@ class _HomePageState extends State<HomePage> {
                 double height = double.parse(heightController.text) / 100;
                 double weight = double.parse(weightController.text);
                 double bmi = weight / (height * height);
+                String category = _getBmiCategory(bmi);
                 setState(() {
-                  bmiResult = 'Your BMI is ${bmi.toStringAsFixed(2)}';
+                  bmiResult = 'BMI: ${bmi.toStringAsFixed(2)}';
+                  bmiCategory = 'Your weight is $category';
                 });
                 Navigator.of(context).pop();
               },
@@ -218,19 +233,31 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 25),
-                    height: 100,
-                    width: 140,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/pushup.png'),
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.black,
-                    ),
-                  ),
+                          ElevatedButton(
+                            onPressed: () {
+                              
+                            },
+                            style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.only(left: 25), 
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              elevation: 0, 
+                              backgroundColor: Colors.black, 
+                            ),
+                            child: Ink.image(
+                              image: AssetImage('assets/images/pushup.png'),
+                              fit: BoxFit.cover,
+                              width: 140,
+                              height: 100,
+                              child: InkWell(
+                                onTap: () {
+                                  
+                                },
+                              ),
+                            ),
+                          ),
+
                   Container(
                     margin: EdgeInsets.only(right: 25),
                     height: 100,
@@ -269,19 +296,30 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 25),
-                    height: 100,
-                    width: 140,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/lunges.png'),
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.black,
-                    ),
-                  ),
+                  ElevatedButton(
+                            onPressed: () {
+                              
+                            },
+                            style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.only(left: 25), 
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              elevation: 0, 
+                              backgroundColor: Colors.black, 
+                            ),
+                            child: Ink.image(
+                              image: AssetImage('assets/images/lunges.png'),
+                              fit: BoxFit.cover,
+                              width: 140,
+                              height: 100,
+                              child: InkWell(
+                                onTap: () {
+                                  
+                                },
+                              ),
+                            ),
+                          ),
                   Container(
                     margin: EdgeInsets.only(right: 25),
                     height: 100,
@@ -320,19 +358,30 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 25),
-                    height: 100,
-                    width: 140,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/dips.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.black,
-                    ),
-                  ),
+                  ElevatedButton(
+                            onPressed: () {
+                              
+                            },
+                            style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.only(left: 25), 
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              elevation: 0, 
+                              backgroundColor: Colors.black, 
+                            ),
+                            child: Ink.image(
+                              image: AssetImage('assets/images/dips.jpg'),
+                              fit: BoxFit.cover,
+                              width: 140,
+                              height: 100,
+                              child: InkWell(
+                                onTap: () {
+                                  
+                                },
+                              ),
+                            ),
+                          ),
                   Container(
                     margin: EdgeInsets.only(right: 25),
                     height: 100,
@@ -490,12 +539,21 @@ class _HomePageState extends State<HomePage> {
               Text(
                 bmiResult,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Style.primaryColor,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 20),
+
+              Text(
+                bmiCategory,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+                            SizedBox(height: 20),
             ],
           ),
         ),
