@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                 String category = _getBmiCategory(bmi);
                 setState(() {
                   bmiResult = 'BMI: ${bmi.toStringAsFixed(2)}';
-                  bmiCategory = 'Your weight is $category';
+                  bmiCategory = 'You are $category';
                 });
                 Navigator.of(context).pop();
               },
@@ -82,6 +82,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+      ),
       body: Container(
         color: const Color.fromARGB(255, 0, 0, 0),
         child: SingleChildScrollView(
