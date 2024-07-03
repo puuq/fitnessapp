@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fitnessapp/components/style.dart';
 import 'package:fitnessapp/pages/home.dart';
-import 'package:fitnessapp/pages/subpages/foodscreen.dart';
+// import 'package:fitnessapp/pages/subpages/foodscreen.dart';
 import 'package:fitnessapp/pages/subpages/profilescreen.dart';
 import 'package:fitnessapp/pages/subpages/programsscreen.dart';
 
@@ -17,7 +17,7 @@ class _LandingPageState extends State<LandingPage> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
-    const FoodScreen(),
+    // const FoodScreen(),
     const ProgramsScreen(),
     const ProfileScreen(),
   ];

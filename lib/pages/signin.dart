@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fitnessapp/pages/landingpage.dart';
@@ -18,7 +16,6 @@ class _SignInState extends State<SignIn> {
 
   @override
   void dispose() {
-    // Clean up the controllers when the widget is disposed
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
