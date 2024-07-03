@@ -1,7 +1,5 @@
-import 'package:fitnessapp/pages/home.dart';
-import 'package:fitnessapp/pages/splashpage.dart';
-import 'package:fitnessapp/pages/signin.dart';
 import 'package:flutter/material.dart';
+import 'package:fitnessapp/pages/splashpage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,7 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false,  
-        home: SplashPage());
+      debugShowCheckedModeBanner: false,  
+      home: SplashPage(),
+    );
   }
 }
