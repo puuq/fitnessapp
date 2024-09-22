@@ -16,6 +16,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String _phone = '+123 456 7890';
   String _address = '1234 Elm Street, Springfield, USA';
 
+  // Controllers for text fields
+  late TextEditingController _nameController;
+  late TextEditingController _emailController;
+  late TextEditingController _phoneController;
+  late TextEditingController _addressController;
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController(text: _name);
+    _emailController = TextEditingController(text: _email);
+    _phoneController = TextEditingController(text: _phone);
+    _addressController = TextEditingController(text: _address);
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _phoneController.dispose();
+    _addressController.dispose();
+    super.dispose();
+  }
+
   // Method to pick image from gallery
   Future<void> _pickImage() async {
     final pickedFile =
@@ -23,43 +47,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     if (pickedFile != null) {
       setState(() {
-        // _imageFile = File(ppickedFile.path);
+        _imageFile = File(pickedFile.path);
       });
     }
   }
 
   // Method to edit profile info
   Future<void> _editProfile() async {
-    // Placeholder for edit logic. Can navigate to a new screen or show a dialog.
-    // Add input fields to allow user to edit profile details.
-    // This function could show a dialog to edit the profile information.
     showDialog(
       context: context,
       builder: (context) {
-        final nameController = TextEditingController(text: _name);
-        final emailController = TextEditingController(text: _email);
-        final phoneController = TextEditingController(text: _phone);
-        final addressController = TextEditingController(text: _address);
-
         return AlertDialog(
           title: const Text('Edit Profile'),
           content: SingleChildScrollView(
             child: Column(
               children: [
                 TextField(
-                  controller: nameController,
+                  controller: _nameController,
                   decoration: const InputDecoration(labelText: 'Name'),
                 ),
                 TextField(
-                  controller: emailController,
+                  controller: _emailController,
                   decoration: const InputDecoration(labelText: 'Email'),
                 ),
                 TextField(
-                  controller: phoneController,
+                  controller: _phoneController,
                   decoration: const InputDecoration(labelText: 'Phone'),
                 ),
                 TextField(
-                  controller: addressController,
+                  controller: _addressController,
                   decoration: const InputDecoration(labelText: 'Address'),
                 ),
               ],
@@ -69,10 +85,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             TextButton(
               onPressed: () {
                 setState(() {
-                  _name = nameController.text;
-                  _email = emailController.text;
-                  _phone = phoneController.text;
-                  _address = addressController.text;
+                  _name = _nameController.text;
+                  _email = _emailController.text;
+                  _phone = _phoneController.text;
+                  _address = _addressController.text;
                 });
                 Navigator.of(context).pop();
               },
@@ -95,6 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.blue,
       ),
       body: Padding(

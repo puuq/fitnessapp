@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     } else if (bmi >= 24.9 && bmi < 29.9) {
       return 'Overweight';
     } else {
-      return 'Obesity';
+      return 'Very Overweight';
     }
   }
 

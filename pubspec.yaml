@@ -73,6 +73,18 @@ flutter:
       - assets/images/calorie.png
       - assets/images/steps.png
       - assets/images/sleep.png
+      - assets/foods/chicken.png
+      - assets/foods/chickpeas.png
+      - assets/foods/egg.png
+      - assets/foods/lentils.png
+      - assets/foods/shrimp.png
+      - assets/foods/tofu.png
+      - assets/foods/pork.png
+      - assets/foods/avocado.png
+      - assets/foods/chocolate.png
+      - assets/foods/steak.png
+      - assets/foods/potato.png
+      - assets/foods/nuts.jfif
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

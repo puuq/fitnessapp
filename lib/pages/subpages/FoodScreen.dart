@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fitnessapp/components/style.dart';
 import '../home.dart'; // Adjusting the path to go up one directory to access home.dart
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,14 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: FoodScreen(),
     );
   }
 }
 
 class FoodScreen extends StatefulWidget {
-  FoodScreen({super.key});
+  const FoodScreen({super.key});
 
   @override
   _FoodScreenState createState() => _FoodScreenState();
@@ -26,32 +27,122 @@ class FoodScreen extends StatefulWidget {
 class _FoodScreenState extends State<FoodScreen> {
   final TextEditingController _bmiController = TextEditingController();
   String _feedback = '';
-  List<String> _foodItems = [];
+  List<Map<String, String>> _foodItems = [];
 
-  final Map<String, List<String>> foodOptions = {
+  final Map<String, List<Map<String, String>>> foodOptions = {
     'underweight': [
-      'High Calorie Food 1',
-      'High Calorie Food 2',
-      'High Calorie Food 2',
-      'High Calorie Food 2',
-      'High Calorie Food 2',
-      'High Calorie Food 2',
+      {
+        'name': 'Avocado',
+        'image': 'assets/foods/avocado.png',
+        'calorie': '160 cal per 100 grams',
+        'protein': '322 cal per Avocado',
+      },
+      {
+        'name': 'Dark Chocolate',
+        'image': 'assets/foods/chocolate.png',
+        'calorie': '599 cal per 100 grams',
+        'protein': '168 cal per 1 oz',
+      },
+      {
+        'name': 'Pork Belly',
+        'image': 'assets/foods/pork.png',
+        'calorie': '541 cal per 100 grams',
+        'protein': '906 per 6 oz',
+      },
+      {
+        'name': 'Steak',
+        'image': 'assets/foods/steak.png',
+        'calorie': '321 cal per 100 grams',
+        'protein': '847 cal per 291 grams',
+      },
+      {
+        'name': 'Potatoes',
+        'image': 'assets/foods/potato.png',
+        'calorie': '86 cal per 100 grams',
+        'protein': '258 cal per 1 large potato',
+      },
+      {
+        'name': 'Mixed Nuts',
+        'image': 'assets/foods/nuts.jfif',
+        'calorie': '560 cal per 100 grams',
+        'protein': '820 cal per 6 oz',
+      },
     ],
     'normal': [
-      'Balanced Diet Food 1',
-      'Balanced Diet Food 2',
-      'Balanced Diet Food 1',
-      'Balanced Diet Food 2',
-      'Balanced Diet Food 1',
-      'Balanced Diet Food 2',
+      {
+        'name': 'Chicken Breast',
+        'image': 'assets/foods/chicken.png',
+        'calorie': '300 cal',
+        'protein': '25 g protein',
+      },
+      {
+        'name': 'Chickpeas',
+        'image': 'assets/foods/chickpeas.png',
+        'calorie': '300 cal',
+        'protein': '25 g protein',
+      },
+      {
+        'name': 'Egg',
+        'image': 'assets/foods/egg.png',
+        'calorie': '300 cal',
+        'protein': '25 g protein',
+      },
+      {
+        'name': 'Lentils',
+        'image': 'assets/foods/lentils.png',
+        'calorie': '300 cal',
+        'protein': '25 g protein',
+      },
+      {
+        'name': 'Shrimp',
+        'image': 'assets/foods/shrimp.png',
+        'calorie': '300 cal',
+        'protein': '25 g protein',
+      },
+      {
+        'name': 'Tofu',
+        'image': 'assets/foods/tofu.png',
+        'calorie': '300 cal',
+        'protein': '25 g protein',
+      },
     ],
     'overweight': [
-      'Low Calorie Food 1',
-      'Low Calorie Food 2',
-      'Low Calorie Food 1',
-      'Low Calorie Food 2',
-      'Low Calorie Food 1',
-      'Low Calorie Food 2',
+      {
+        'name': 'Chicken Breast',
+        'image': 'assets/foods/chicken.png',
+        'calorie': '120 cal per 112 grams',
+        'protein': '26g protein',
+      },
+      {
+        'name': 'Chickpeas',
+        'image': 'assets/foods/chickpeas.png',
+        'calorie': '135 cal per 82 grams',
+        'protein': '7g protein',
+      },
+      {
+        'name': 'Egg',
+        'image': 'assets/foods/egg.png',
+        'calorie': '72 cal per 50 grams',
+        'protein': '6g protein',
+      },
+      {
+        'name': 'Lentils',
+        'image': 'assets/foods/lentils.png',
+        'calorie': '113 cal per 198 grams',
+        'protein': '9g protein',
+      },
+      {
+        'name': 'Shrimp',
+        'image': 'assets/foods/shrimp.png',
+        'calorie': '132 cal per 145 grams',
+        'protein': '25g protein',
+      },
+      {
+        'name': 'Tofu',
+        'image': 'assets/foods/tofu.png',
+        'calorie': '181 cal per 126 grams',
+        'protein': '22g protein',
+      },
     ],
   };
 
@@ -68,17 +159,17 @@ class _FoodScreenState extends State<FoodScreen> {
     if (bmi < 18.5) {
       setState(() {
         _feedback = 'You are underweight';
-        _foodItems = foodOptions['underweight']!;
+        _foodItems = foodOptions['underweight']!; // Ensure it's a list of maps
       });
     } else if (bmi >= 18.5 && bmi <= 24.5) {
       setState(() {
         _feedback = 'You are balanced';
-        _foodItems = foodOptions['normal']!;
+        _foodItems = foodOptions['normal']!; // Ensure it's a list of maps
       });
     } else {
       setState(() {
         _feedback = 'You are overweight';
-        _foodItems = foodOptions['overweight']!;
+        _foodItems = foodOptions['overweight']!; // Ensure it's a list of maps
       });
     }
   }
@@ -88,6 +179,7 @@ class _FoodScreenState extends State<FoodScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Food Screen'),
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         children: [
@@ -95,7 +187,7 @@ class _FoodScreenState extends State<FoodScreen> {
             padding: const EdgeInsets.all(16.0),
             child: TextField(
               controller: _bmiController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Enter your BMI',
                 border: OutlineInputBorder(),
               ),
@@ -124,58 +216,56 @@ class _FoodScreenState extends State<FoodScreen> {
               ),
               itemCount: _foodItems.length,
               itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            FoodDetailPage(title: _foodItems[index]),
+                return Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Display image
+                      Image.asset(
+                        _foodItems[index]['image']!,
+                        height: 100.0,
+                        width: 100.0,
+                        fit: BoxFit.cover,
                       ),
-                    );
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          _foodItems[index],
-                          style: const TextStyle(
-                              fontSize: 16.0, fontWeight: FontWeight.bold),
+                      const SizedBox(height: 8.0),
+                      // Display food name
+                      Text(
+                        _foodItems[index]['name']!,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ),
+                      // Display calorie
+                      Text(
+                        _foodItems[index]['calorie'] ??
+                            'N/A', // Use ?? for safety
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 13.0,
+                        ),
+                      ),
+                      // Display protein
+                      Text(
+                        _foodItems[index]['protein'] ??
+                            'N/A', // Use ?? for safety
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 13.0,
+                        ),
+                      ),
+                    ],
                   ),
                 );
               },
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class FoodDetailPage extends StatelessWidget {
-  final String title;
-
-  const FoodDetailPage({super.key, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Food Detail Page'),
-      ),
-      body: Center(
-        child: Text(
-          'Details for $title',
-          style: const TextStyle(fontSize: 24.0),
-        ),
       ),
     );
   }
