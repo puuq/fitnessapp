@@ -1,6 +1,5 @@
 import 'package:fitnessapp/components/style.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
