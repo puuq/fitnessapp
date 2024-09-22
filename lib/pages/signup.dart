@@ -49,7 +49,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          appBar: AppBar(
+      appBar: AppBar(
         toolbarHeight: 0,
         centerTitle: true,
         automaticallyImplyLeading: false,
@@ -58,29 +58,29 @@ class _SignUpState extends State<SignUp> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Image.asset(
-                'assets/images/logo.png',
-                width: 70,
+            padding: const EdgeInsets.only(bottom: 10),
+            child: Image.asset(
+              'assets/images/logo.png',
+              width: 70,
               height: 70,
               fit: BoxFit.contain,
-              ),
             ),
+          ),
           Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: Text(
-                'Sign Up',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 40,
-                    fontWeight: FontWeight.w500),
-              ),
+            padding: const EdgeInsets.only(bottom: 20),
+            child: Text(
+              'Sign Up',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 40,
+                  fontWeight: FontWeight.w500),
             ),
+          ),
           // Email TextField
           Padding(
             padding: const EdgeInsets.all(0.0),
             child: Center(
-              child: Container(
+              child: SizedBox(
                 height: 55,
                 width: 300,
                 child: TextField(

@@ -32,20 +32,20 @@ class _HomePageState extends State<HomePage> {
         TextEditingController heightController = TextEditingController();
         TextEditingController weightController = TextEditingController();
         return AlertDialog(
-          title: Text('BMI Calculator'),
+          title: const Text('BMI Calculator'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
                 controller: heightController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Height (cm)',
                 ),
                 keyboardType: TextInputType.number,
               ),
               TextField(
                 controller: weightController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Weight (kg)',
                 ),
                 keyboardType: TextInputType.number,
@@ -54,13 +54,13 @@ class _HomePageState extends State<HomePage> {
           ),
           actions: [
             TextButton(
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: Text('Calculate'),
+              child: const Text('Calculate'),
               onPressed: () {
                 double height = double.parse(heightController.text) / 100;
                 double weight = double.parse(weightController.text);
@@ -90,19 +90,19 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: 750,
                 child: Stack(
                   children: [
                     Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/images/homepage.jpg'),
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       top: 50,
                       left: 20,
                       child: Column(
@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         width: 50.0,
                         height: 50.0,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.blue,
                           shape: BoxShape.circle,
                         ),
@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       bottom: 40,
                       left: 60,
                       child: Column(
@@ -215,12 +215,12 @@ class _HomePageState extends State<HomePage> {
               Container(
                 width: 400,
                 height: 60,
-                margin: EdgeInsets.all(35),
+                margin: const EdgeInsets.all(35),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: Style.primaryColor,
                 ),
-                child: Center(
+                child: const Center(
                   child: Text(
                     'Weekly Challenge',
                     style: TextStyle(
@@ -232,43 +232,38 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              
-                            },
-                            style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.only(left: 25), 
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              elevation: 0, 
-                              backgroundColor: Colors.black, 
-                            ),
-                            child: Ink.image(
-                              image: AssetImage('assets/images/pushup.png'),
-                              fit: BoxFit.cover,
-                              width: 140,
-                              height: 100,
-                              child: InkWell(
-                                onTap: () {
-                                  
-                                },
-                              ),
-                            ),
-                          ),
-
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.only(left: 25),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      elevation: 0,
+                      backgroundColor: Colors.black,
+                    ),
+                    child: Ink.image(
+                      image: const AssetImage('assets/images/pushup.png'),
+                      fit: BoxFit.cover,
+                      width: 140,
+                      height: 100,
+                      child: InkWell(
+                        onTap: () {},
+                      ),
+                    ),
+                  ),
                   Container(
-                    margin: EdgeInsets.only(right: 25),
+                    margin: const EdgeInsets.only(right: 25),
                     height: 100,
                     width: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -295,42 +290,38 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                            onPressed: () {
-                              
-                            },
-                            style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.only(left: 25), 
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              elevation: 0, 
-                              backgroundColor: Colors.black, 
-                            ),
-                            child: Ink.image(
-                              image: AssetImage('assets/images/lunges.png'),
-                              fit: BoxFit.cover,
-                              width: 140,
-                              height: 100,
-                              child: InkWell(
-                                onTap: () {
-                                  
-                                },
-                              ),
-                            ),
-                          ),
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.only(left: 25),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      elevation: 0,
+                      backgroundColor: Colors.black,
+                    ),
+                    child: Ink.image(
+                      image: const AssetImage('assets/images/lunges.png'),
+                      fit: BoxFit.cover,
+                      width: 140,
+                      height: 100,
+                      child: InkWell(
+                        onTap: () {},
+                      ),
+                    ),
+                  ),
                   Container(
-                    margin: EdgeInsets.only(right: 25),
+                    margin: const EdgeInsets.only(right: 25),
                     height: 100,
                     width: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -357,42 +348,38 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                            onPressed: () {
-                              
-                            },
-                            style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.only(left: 25), 
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              elevation: 0, 
-                              backgroundColor: Colors.black, 
-                            ),
-                            child: Ink.image(
-                              image: AssetImage('assets/images/dips.jpg'),
-                              fit: BoxFit.cover,
-                              width: 140,
-                              height: 100,
-                              child: InkWell(
-                                onTap: () {
-                                  
-                                },
-                              ),
-                            ),
-                          ),
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.only(left: 25),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      elevation: 0,
+                      backgroundColor: Colors.black,
+                    ),
+                    child: Ink.image(
+                      image: const AssetImage('assets/images/dips.jpg'),
+                      fit: BoxFit.cover,
+                      width: 140,
+                      height: 100,
+                      child: InkWell(
+                        onTap: () {},
+                      ),
+                    ),
+                  ),
                   Container(
-                    margin: EdgeInsets.only(right: 25),
+                    margin: const EdgeInsets.only(right: 25),
                     height: 100,
                     width: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -420,18 +407,16 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     height: 100,
                     width: 100,
-                    margin: EdgeInsets.only(left: 25),
+                    margin: const EdgeInsets.only(left: 25),
                     decoration: BoxDecoration(
                       color: Style.calorieColor,
                       borderRadius: BorderRadius.circular(10),
@@ -444,8 +429,8 @@ class _HomePageState extends State<HomePage> {
                           height: 40,
                           width: 40,
                         ),
-                        SizedBox(height: 8),
-                        Text(
+                        const SizedBox(height: 8),
+                        const Text(
                           '720 Kcal',
                           style: TextStyle(
                             fontSize: 16,
@@ -471,8 +456,8 @@ class _HomePageState extends State<HomePage> {
                           height: 40,
                           width: 40,
                         ),
-                        SizedBox(height: 8),
-                        Text(
+                        const SizedBox(height: 8),
+                        const Text(
                           '1000 steps',
                           style: TextStyle(
                             fontSize: 16,
@@ -486,7 +471,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 100,
                     width: 100,
-                    margin: EdgeInsets.only(right: 25),
+                    margin: const EdgeInsets.only(right: 25),
                     decoration: BoxDecoration(
                       color: Style.sleepColor,
                       borderRadius: BorderRadius.circular(10),
@@ -499,8 +484,8 @@ class _HomePageState extends State<HomePage> {
                           height: 40,
                           width: 40,
                         ),
-                        SizedBox(height: 8),
-                        Text(
+                        const SizedBox(height: 8),
+                        const Text(
                           '6 hour',
                           style: TextStyle(
                             fontSize: 16,
@@ -511,22 +496,20 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  
                 ],
               ),
-
-              SizedBox(height: 40),
-
+              const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: _showBmiCalculatorDialog,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Style.primaryColor, 
+                  backgroundColor: Style.primaryColor,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50), 
+                    borderRadius: BorderRadius.circular(50),
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40), 
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
                 ),
-                child: Text(
+                child: const Text(
                   'Calculate Your BMI',
                   style: TextStyle(
                     fontSize: 30,
@@ -536,27 +519,24 @@ class _HomePageState extends State<HomePage> {
                   textAlign: TextAlign.center,
                 ),
               ),
-
-              SizedBox(height: 20),
-              
+              const SizedBox(height: 20),
               Text(
                 bmiResult,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Style.primaryColor,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
               Text(
                 bmiCategory,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.normal,
                 ),
               ),
-                            SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),

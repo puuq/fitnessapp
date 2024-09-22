@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class BMICalculator extends StatefulWidget {
+  const BMICalculator({super.key});
+
   @override
   _BMICalculatorState createState() => _BMICalculatorState();
 }
 
 class _BMICalculatorState extends State<BMICalculator> {
-  TextEditingController _weightController = TextEditingController();
-  TextEditingController _heightController = TextEditingController();
+  final TextEditingController _weightController = TextEditingController();
+  final TextEditingController _heightController = TextEditingController();
   double _weight = 0.0;
   double _height = 0.0;
   double _bmiResult = 0.0;
@@ -24,7 +26,7 @@ class _BMICalculatorState extends State<BMICalculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: const Text('BMI Calculator'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -35,7 +37,7 @@ class _BMICalculatorState extends State<BMICalculator> {
             TextField(
               controller: _weightController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Weight (kg)',
               ),
               onChanged: (value) {
@@ -44,11 +46,11 @@ class _BMICalculatorState extends State<BMICalculator> {
                 });
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextField(
               controller: _heightController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Height (cm)',
               ),
               onChanged: (value) {
@@ -57,16 +59,17 @@ class _BMICalculatorState extends State<BMICalculator> {
                 });
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _calculateBMI,
-              child: Text('Calculate BMI'),
+              child: const Text('Calculate BMI'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             _bmiResult > 0
                 ? Text(
                     'Your BMI: ${_bmiResult.toStringAsFixed(1)}',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
                   )
                 : Container(),
           ],

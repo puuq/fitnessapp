@@ -4,7 +4,7 @@ import 'package:fitnessapp/pages/signin.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
 
   @override
   State<SplashPage> createState() => _SplashPageState();
@@ -17,14 +17,14 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     // After 3 seconds, set _showIcon to false triggering the fade-out animation
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _showIcon = false;
       });
       // Navigate to the next page after the fade-out animation finishes
-      Future.delayed(Duration(milliseconds: 800), () {
+      Future.delayed(const Duration(milliseconds: 800), () {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => SignIn()),
+          MaterialPageRoute(builder: (context) => const SignIn()),
         );
       });
     });
@@ -36,13 +36,13 @@ class _SplashPageState extends State<SplashPage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(color: Colors.black),
+        decoration: const BoxDecoration(color: Colors.black),
         child: Center(
           child: AnimatedOpacity(
             opacity:
                 _showIcon ? 1.0 : 0.0, // Set opacity based on _showIcon state
-            duration:
-                Duration(seconds: 2), // Adjust duration as per your preference
+            duration: const Duration(
+                seconds: 2), // Adjust duration as per your preference
             child: Image.asset(
               'assets/images/logo.png', // Replace 'your_image.png' with your image asset path
               width: 100,

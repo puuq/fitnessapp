@@ -1,3 +1,4 @@
+import 'package:fitnessapp/pages/subpages/FoodScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:fitnessapp/components/style.dart';
 import 'package:fitnessapp/pages/home.dart';
@@ -17,7 +18,7 @@ class _LandingPageState extends State<LandingPage> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
-    // const FoodScreen(),
+    FoodScreen(),
     const ProgramsScreen(),
     const ProfileScreen(),
   ];
@@ -56,7 +57,7 @@ class _LandingPageState extends State<LandingPage> {
         ],
         currentIndex: _selectedIndex,
         unselectedItemColor: Colors.white,
-        selectedItemColor: Color.fromARGB(255, 234, 188, 243),
+        selectedItemColor: const Color.fromARGB(255, 234, 188, 243),
         onTap: _onItemTapped,
         backgroundColor: Style.backgroundColor,
         selectedFontSize: 16,

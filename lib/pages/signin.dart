@@ -4,7 +4,7 @@ import 'package:fitnessapp/pages/landingpage.dart';
 import 'package:fitnessapp/pages/signup.dart';
 
 class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
+  const SignIn({super.key});
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -28,22 +28,22 @@ class _SignInState extends State<SignIn> {
         toolbarHeight: 100,
         automaticallyImplyLeading: false,
       ),
-      body: Container(
+      body: SizedBox(
         height: 500,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-                        Padding(
+            Padding(
               padding: const EdgeInsets.only(bottom: 10),
               child: Image.asset(
                 'assets/images/logo.png',
                 width: 70,
-              height: 70,
-              fit: BoxFit.contain,
+                height: 70,
+                fit: BoxFit.contain,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 20),
               child: Text(
                 'Sign In',
                 style: TextStyle(
@@ -52,15 +52,14 @@ class _SignInState extends State<SignIn> {
                     fontWeight: FontWeight.w500),
               ),
             ),
-
             Center(
-              child: Container(
+              child: SizedBox(
                 height: 55,
                 width: 300,
                 child: TextField(
                   controller: emailController,
                   enabled: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 0, horizontal: 0),
                     hintText: 'Email',
@@ -70,13 +69,13 @@ class _SignInState extends State<SignIn> {
             ),
             Center(
               child: Container(
-                margin: EdgeInsets.only(bottom: 10),
+                margin: const EdgeInsets.only(bottom: 10),
                 width: 300,
                 child: TextField(
                   controller: passwordController,
                   enabled: true,
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 0, horizontal: 0),
                     hintText: 'Password',
@@ -84,8 +83,7 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
             ),
-            
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.only(bottom: 5),
               child: SizedBox(
@@ -95,7 +93,8 @@ class _SignInState extends State<SignIn> {
                     // Navigate to the LandingPage when the login button is pressed
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LandingPage()),
+                      MaterialPageRoute(
+                          builder: (context) => const LandingPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -111,32 +110,31 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
             ),
-
             Container(
               alignment: Alignment.center,
-              padding: EdgeInsets.only(bottom: 10),
-              child: Text(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: const Text(
                 'Forgot Password?',
                 style:
                     TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
               ),
             ),
-            
             RichText(
               text: TextSpan(
                 text: "Don't have an account? ",
-                style: TextStyle(color: const Color.fromARGB(255, 75, 75, 75)),
+                style: const TextStyle(color: Color.fromARGB(255, 75, 75, 75)),
                 children: [
                   TextSpan(
                     text: 'Sign Up',
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.blue, fontWeight: FontWeight.bold),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
                         // Navigate to the SignUpPage when the text is tapped
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SignUp()),
+                          MaterialPageRoute(
+                              builder: (context) => const SignUp()),
                         );
                       },
                   ),
