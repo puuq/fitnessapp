@@ -14,13 +14,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String _name = 'John Doe';
   String _email = 'johndoe@example.com';
   String _phone = '+123 456 7890';
-  String _address = '1234 Elm Street, Springfield, USA';
+  String _gender = 'Male'; // Updated from address to gender
 
   // Controllers for text fields
   late TextEditingController _nameController;
   late TextEditingController _emailController;
   late TextEditingController _phoneController;
-  late TextEditingController _addressController;
+  late TextEditingController _genderController; // Updated controller
 
   @override
   void initState() {
@@ -28,7 +28,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     _nameController = TextEditingController(text: _name);
     _emailController = TextEditingController(text: _email);
     _phoneController = TextEditingController(text: _phone);
-    _addressController = TextEditingController(text: _address);
+    _genderController =
+        TextEditingController(text: _gender); // Updated initialization
   }
 
   @override
@@ -36,7 +37,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     _nameController.dispose();
     _emailController.dispose();
     _phoneController.dispose();
-    _addressController.dispose();
+    _genderController.dispose(); // Updated disposal
     super.dispose();
   }
 
@@ -71,12 +72,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   decoration: const InputDecoration(labelText: 'Email'),
                 ),
                 TextField(
-                  controller: _phoneController,
-                  decoration: const InputDecoration(labelText: 'Phone'),
+                  controller: _genderController, // Updated to gender
+                  decoration: const InputDecoration(labelText: 'Gender'),
                 ),
                 TextField(
-                  controller: _addressController,
-                  decoration: const InputDecoration(labelText: 'Address'),
+                  controller: _phoneController,
+                  decoration: const InputDecoration(labelText: 'Phone'),
                 ),
               ],
             ),
@@ -88,7 +89,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   _name = _nameController.text;
                   _email = _emailController.text;
                   _phone = _phoneController.text;
-                  _address = _addressController.text;
+                  _gender = _genderController.text; // Updated to gender
                 });
                 Navigator.of(context).pop();
               },
@@ -175,18 +176,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 elevation: 4,
                 margin: const EdgeInsets.symmetric(vertical: 8),
                 child: ListTile(
-                  leading: const Icon(Icons.phone),
-                  title: const Text("Phone"),
-                  subtitle: Text(_phone),
+                  leading: const Icon(Icons.male),
+                  title: const Text("Gender"), // Updated label
+                  subtitle: Text(_gender), // Updated to display gender
                 ),
               ),
               Card(
                 elevation: 4,
                 margin: const EdgeInsets.symmetric(vertical: 8),
                 child: ListTile(
-                  leading: const Icon(Icons.home),
-                  title: const Text("Address"),
-                  subtitle: Text(_address),
+                  leading: const Icon(Icons.phone),
+                  title: const Text("Phone"),
+                  subtitle: Text(_phone),
                 ),
               ),
               const SizedBox(height: 20),

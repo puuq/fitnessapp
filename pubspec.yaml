@@ -85,6 +85,11 @@ flutter:
       - assets/foods/steak.png
       - assets/foods/potato.png
       - assets/foods/nuts.jfif
+      - assets/foods/fruits.png
+      - assets/foods/veggie.png
+      - assets/foods/dairy.png
+      - assets/foods/grains.png
+      - assets/foods/meat.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

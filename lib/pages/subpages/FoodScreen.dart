@@ -70,40 +70,40 @@ class _FoodScreenState extends State<FoodScreen> {
     ],
     'normal': [
       {
-        'name': 'Chicken Breast',
-        'image': 'assets/foods/chicken.png',
-        'calorie': '300 cal',
-        'protein': '25 g protein',
+        'name': 'Fresh Fruits',
+        'image': 'assets/foods/fruits.png',
+        'calorie': 'Fruit Juice if possible',
+        'protein': 'Good for maintaining Weight',
       },
       {
-        'name': 'Chickpeas',
-        'image': 'assets/foods/chickpeas.png',
-        'calorie': '300 cal',
-        'protein': '25 g protein',
+        'name': 'Fresh Vegetables',
+        'image': 'assets/foods/veggie.png',
+        'calorie': 'Serve with Plain rice',
+        'protein': 'Good for Vitamin Sources',
       },
       {
-        'name': 'Egg',
+        'name': 'Dairy Products',
+        'image': 'assets/foods/dairy.png',
+        'calorie': 'Suggested to take at morning',
+        'protein': 'Avoid before bed',
+      },
+      {
+        'name': 'Whole Grains',
+        'image': 'assets/foods/grains.png',
+        'calorie': 'Can be replacement for rice',
+        'protein': 'Avoid taking daily',
+      },
+      {
+        'name': 'Lean Meat',
+        'image': 'assets/foods/meat.png',
+        'calorie': 'Can be consumed daily',
+        'protein': 'Avoid deep fried',
+      },
+      {
+        'name': 'Eggs',
         'image': 'assets/foods/egg.png',
-        'calorie': '300 cal',
-        'protein': '25 g protein',
-      },
-      {
-        'name': 'Lentils',
-        'image': 'assets/foods/lentils.png',
-        'calorie': '300 cal',
-        'protein': '25 g protein',
-      },
-      {
-        'name': 'Shrimp',
-        'image': 'assets/foods/shrimp.png',
-        'calorie': '300 cal',
-        'protein': '25 g protein',
-      },
-      {
-        'name': 'Tofu',
-        'image': 'assets/foods/tofu.png',
-        'calorie': '300 cal',
-        'protein': '25 g protein',
+        'calorie': 'Boiled eggs are highly recommended',
+        'protein': '',
       },
     ],
     'overweight': [
@@ -146,6 +146,12 @@ class _FoodScreenState extends State<FoodScreen> {
     ],
   };
 
+  @override
+  void initState() {
+    super.initState();
+    _foodItems = foodOptions['normal']!; // Default to normal foods
+  }
+
   void _checkBMI() {
     final double? bmi = double.tryParse(_bmiController.text);
     if (bmi == null) {
@@ -158,20 +164,30 @@ class _FoodScreenState extends State<FoodScreen> {
 
     if (bmi < 18.5) {
       setState(() {
-        _feedback = 'You are underweight';
-        _foodItems = foodOptions['underweight']!; // Ensure it's a list of maps
+        _feedback =
+            'You are underweight, Try gaining some weight with the foods listed below!';
+        _foodItems = foodOptions['underweight']!;
       });
     } else if (bmi >= 18.5 && bmi <= 24.5) {
       setState(() {
-        _feedback = 'You are balanced';
-        _foodItems = foodOptions['normal']!; // Ensure it's a list of maps
+        _feedback =
+            'You are balanced, Below are some normal healthy meals for you!';
+        _foodItems = foodOptions['normal']!;
       });
     } else {
       setState(() {
-        _feedback = 'You are overweight';
-        _foodItems = foodOptions['overweight']!; // Ensure it's a list of maps
+        _feedback =
+            'You are overweight, Check some low calorie high protein foods below!';
+        _foodItems = foodOptions['overweight']!;
       });
     }
+  }
+
+  void _showFoodList(String category) {
+    setState(() {
+      _foodItems = foodOptions[category]!;
+      _feedback = ''; // Clear feedback when showing food list
+    });
   }
 
   @override
@@ -197,6 +213,24 @@ class _FoodScreenState extends State<FoodScreen> {
           ElevatedButton(
             onPressed: _checkBMI,
             child: const Text('Check BMI'),
+          ),
+          // Buttons to show food lists
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () => _showFoodList('underweight'),
+                child: const Text('High Calorie'),
+              ),
+              ElevatedButton(
+                onPressed: () => _showFoodList('normal'),
+                child: const Text('Balanced'),
+              ),
+              ElevatedButton(
+                onPressed: () => _showFoodList('overweight'),
+                child: const Text('High Protein'),
+              ),
+            ],
           ),
           if (_feedback.isNotEmpty)
             Padding(
@@ -243,21 +277,15 @@ class _FoodScreenState extends State<FoodScreen> {
                       ),
                       // Display calorie
                       Text(
-                        _foodItems[index]['calorie'] ??
-                            'N/A', // Use ?? for safety
+                        _foodItems[index]['calorie'] ?? 'N/A',
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 13.0,
-                        ),
+                        style: const TextStyle(fontSize: 13.0),
                       ),
                       // Display protein
                       Text(
-                        _foodItems[index]['protein'] ??
-                            'N/A', // Use ?? for safety
+                        _foodItems[index]['protein'] ?? 'N/A',
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 13.0,
-                        ),
+                        style: const TextStyle(fontSize: 13.0),
                       ),
                     ],
                   ),
