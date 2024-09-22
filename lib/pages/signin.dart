@@ -1,3 +1,4 @@
+import 'package:fitnessapp/services/auth_service.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fitnessapp/pages/landingpage.dart';
@@ -89,13 +90,11 @@ class _SignInState extends State<SignIn> {
               child: SizedBox(
                 width: 100,
                 child: ElevatedButton(
-                  onPressed: () {
-                    // Navigate to the LandingPage when the login button is pressed
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LandingPage()),
-                    );
+                  onPressed: () async {
+                    await AuthService().signin(
+                        email: emailController.text,
+                        password: passwordController.text,
+                        context: context);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,

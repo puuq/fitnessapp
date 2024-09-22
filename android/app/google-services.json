@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "345541947206",
+    "project_id": "fit-genius-test",
+    "storage_bucket": "fit-genius-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345541947206:android:7ff4ee016168d21e117f47",
+        "android_client_info": {
+          "package_name": "com.example.fitnessapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO8mlTYER7wHACCA_I9-4XDDO5TqkWgEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

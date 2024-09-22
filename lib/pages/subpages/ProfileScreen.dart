@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:fitnessapp/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -193,8 +194,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(height: 20),
               // Other actions
               ElevatedButton(
-                onPressed: () {
-                  // Add logout logic or any other actions
+                onPressed: () async {
+                  await AuthService().signout(context: context);
                   print('User logged out');
                 },
                 child: const Text('Logout'),

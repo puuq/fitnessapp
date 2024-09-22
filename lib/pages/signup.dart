@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:fitnessapp/pages/signin.dart';
+import 'package:fitnessapp/services/auth_service.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fitnessapp/pages/landingpage.dart';
@@ -26,24 +27,6 @@ class _SignUpState extends State<SignUp> {
     passwordController.dispose();
     confirmPasswordController.dispose();
     super.dispose();
-  }
-
-  // Function to handle signing up
-  void signUp() {
-    if (passwordController.text != confirmPasswordController.text) {
-      // If passwords don't match, set error text
-      setState(() {
-        errorText = 'Passwords do not match';
-      });
-    } else {
-      // Passwords match, proceed with signing up
-      // Implement your sign-up logic here
-      // For example, navigate to the LandingPage
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => LandingPage()),
-      );
-    }
   }
 
   @override
@@ -112,26 +95,26 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
           ),
-          // Confirm Password TextField
-          Center(
-            child: Container(
-              margin: EdgeInsets.only(bottom: 10),
-              width: 300,
-              child: TextField(
-                controller: confirmPasswordController,
-                enabled: true,
-                obscureText: true,
-                decoration: InputDecoration(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-                  hintText: 'Confirm Password',
-                  errorText: errorText.isNotEmpty
-                      ? errorText
-                      : null, // Show error text if not empty
-                ),
-              ),
-            ),
-          ),
+          // // Confirm Password TextField
+          // Center(
+          //   child: Container(
+          //     margin: EdgeInsets.only(bottom: 10),
+          //     width: 300,
+          //     child: TextField(
+          //       controller: confirmPasswordController,
+          //       enabled: true,
+          //       obscureText: true,
+          //       decoration: InputDecoration(
+          //         contentPadding:
+          //             EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+          //         hintText: 'Confirm Password',
+          //         errorText: errorText.isNotEmpty
+          //             ? errorText
+          //             : null, // Show error text if not empty
+          //       ),
+          //     ),
+          //   ),
+          // ),
           SizedBox(height: 10),
           // Sign Up Button
           Padding(
@@ -139,7 +122,12 @@ class _SignUpState extends State<SignUp> {
             child: SizedBox(
               width: 100,
               child: ElevatedButton(
-                onPressed: signUp, // Call signUp function on button press
+                onPressed: () async {
+                  await AuthService().signup(
+                      email: emailController.text,
+                      password: passwordController.text,
+                      context: context);
+                }, // Call signUp function on button press
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   shape: RoundedRectangleBorder(
