@@ -156,7 +156,7 @@ class _FoodScreenState extends State<FoodScreen> {
     final double? bmi = double.tryParse(_bmiController.text);
     if (bmi == null) {
       setState(() {
-        _feedback = 'Please enter a valid number';
+        _feedback = 'Please enter your BMI';
         _foodItems = [];
       });
       return;
@@ -194,7 +194,11 @@ class _FoodScreenState extends State<FoodScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Food Screen'),
+        title: const Text(
+          'Food Screen',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
         automaticallyImplyLeading: false,
       ),
       body: Column(
@@ -212,7 +216,7 @@ class _FoodScreenState extends State<FoodScreen> {
           ),
           ElevatedButton(
             onPressed: _checkBMI,
-            child: const Text('Check BMI'),
+            child: const Text('Suggest me what to eat'),
           ),
           // Buttons to show food lists
           Row(

@@ -93,6 +93,14 @@ flutter:
       - assets/foods/dairy.png
       - assets/foods/grains.png
       - assets/foods/meat.png
+      - assets/abs.png
+      - assets/back.png
+      - assets/biceps.png
+      - assets/chest.png
+      - assets/forearms.png
+      - assets/legs.png
+      - assets/shoulder.png
+      - assets/triceps.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

@@ -51,8 +51,8 @@ class _LandingPageState extends State<LandingPage> {
             label: 'Programs',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.info),
+            label: 'About',
           ),
         ],
         currentIndex: _selectedIndex,

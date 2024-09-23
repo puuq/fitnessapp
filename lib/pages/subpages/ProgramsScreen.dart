@@ -10,13 +10,15 @@ class ProgramsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Workout Programs',
-          style: TextStyle(color: Colors.white), // Set title color to white
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ), // Set title color to white
         ),
         automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Style.backgroundColor,
       ),
-      // Change the body background color to Style.backgroundColor
       body: Container(
         color: Style.backgroundColor, // Set body background color
         padding: const EdgeInsets.all(16.0),
@@ -25,24 +27,24 @@ class ProgramsScreen extends StatelessWidget {
           crossAxisSpacing: 16.0,
           mainAxisSpacing: 16.0,
           children: [
-            _buildProgramCard(context, 'Chest', Icons.fitness_center),
-            _buildProgramCard(context, 'Back', Icons.fitness_center),
-            _buildProgramCard(context, 'Biceps', Icons.fitness_center),
-            _buildProgramCard(context, 'Triceps', Icons.fitness_center),
-            _buildProgramCard(context, 'Shoulders', Icons.fitness_center),
-            _buildProgramCard(context, 'Legs', Icons.fitness_center),
-            _buildProgramCard(context, 'Forearms', Icons.fitness_center),
-            _buildProgramCard(context, 'Abs', Icons.fitness_center),
+            _buildProgramCard(context, 'Chest', 'assets/chest.png'),
+            _buildProgramCard(context, 'Back', 'assets/back.png'),
+            _buildProgramCard(context, 'Biceps', 'assets/biceps.png'),
+            _buildProgramCard(context, 'Triceps', 'assets/triceps.png'),
+            _buildProgramCard(context, 'Shoulders', 'assets/shoulder.png'),
+            _buildProgramCard(context, 'Legs', 'assets/legs.png'),
+            _buildProgramCard(context, 'Forearms', 'assets/forearms.png'),
+            _buildProgramCard(context, 'Abs', 'assets/abs.png'),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildProgramCard(BuildContext context, String title, IconData icon) {
+  Widget _buildProgramCard(
+      BuildContext context, String title, String imagePath) {
     return Card(
       elevation: 4.0,
-      color: Colors.lightBlueAccent,
       child: InkWell(
         onTap: () {
           // Navigate to the ExerciseListScreen when the card is tapped
@@ -53,17 +55,32 @@ class ProgramsScreen extends StatelessWidget {
             ),
           );
         },
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Stack(
           children: [
-            Icon(icon, size: 48.0, color: Colors.white),
-            const SizedBox(height: 8.0),
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+            // Background image for the card
+            Positioned.fill(
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.cover,
+              ),
+            ),
+            // Title on top of the background image
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                color: Colors.black54,
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
           ],
@@ -113,21 +130,70 @@ class ExerciseListScreen extends StatelessWidget {
   List<String> _getExercisesForCategory(String category) {
     switch (category) {
       case 'Chest':
-        return ['Bench Press', 'Incline Dumbbell Press', 'Chest Fly'];
+        return [
+          'Flat Bench Press',
+          'Incline Dumbbell Press',
+          'Peg Fly',
+          'Cable Curls',
+          'Decline Bench Press',
+          'Dumbell Pullover',
+          'Push-Ups'
+        ];
       case 'Back':
-        return ['Pull-ups', 'Deadlift', 'Bent-over Rows'];
+        return [
+          'Pull-ups',
+          'Deadlift',
+          'Bent-over Rows',
+          'Pull-down',
+          'Seated Rows',
+          'Barbell Rows'
+        ];
       case 'Biceps':
-        return ['Barbell Curls', 'Hammer Curls', 'Concentration Curls'];
+        return [
+          'Barbell Curls',
+          'Hammer Curls',
+          'Concentration Curls',
+          'Dumbell Curls',
+          'Cable Concentration'
+        ];
       case 'Triceps':
-        return ['Tricep Dips', 'Skull Crushers', 'Close-grip Bench Press'];
+        return [
+          'Tricep Dips',
+          'Skull Crushers',
+          'Close-grip Bench Press',
+          'Kickbacks',
+          'Rope Pushdown'
+        ];
       case 'Shoulders':
-        return ['Overhead Press', 'Lateral Raise', 'Front Raise'];
+        return [
+          'Overhead Press',
+          'Lateral Raise',
+          'Front Raise',
+          'Arlond Press',
+          'Real Dealt',
+        ];
       case 'Legs':
-        return ['Squats', 'Leg Press', 'Lunges'];
+        return [
+          'Squats',
+          'Leg Press',
+          'Lunges',
+          'Bodyweight Squats',
+          'Lunges',
+        ];
       case 'Forearms':
-        return ['Wrist Curls', 'Reverse Wrist Curls', 'Farmer’s Walk'];
+        return [
+          'Wrist Curls',
+          'Reverse Wrist Curls',
+          'Farmer’s Walk',
+        ];
       case 'Abs':
-        return ['Crunches', 'Planks', 'Leg Raises'];
+        return [
+          'Crunches',
+          'Planks',
+          'Leg Raises',
+          'Hip Rotations',
+          'Side leg swings'
+        ];
       default:
         return ['Exercise 1', 'Exercise 2'];
     }

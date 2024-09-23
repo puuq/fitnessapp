@@ -32,11 +32,6 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 0,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

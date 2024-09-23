@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitnessapp/pages/home.dart';
+import 'package:fitnessapp/pages/landingpage.dart';
 import 'package:fitnessapp/pages/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -17,7 +18,7 @@ class AuthService {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (BuildContext context) => const HomePage()));
+              builder: (BuildContext context) => const LandingPage()));
     } on FirebaseAuthException catch (e) {
       String message = '';
       if (e.code == 'weak-password') {
@@ -48,7 +49,7 @@ class AuthService {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (BuildContext context) => const HomePage()));
+              builder: (BuildContext context) => const LandingPage()));
     } on FirebaseAuthException catch (e) {
       String message = '';
       if (e.code == 'user-not-found') {
